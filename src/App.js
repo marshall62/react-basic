@@ -15,7 +15,7 @@ class App extends Component {
     let host = process.env.REACT_APP_BACKEND_URI;
     // am failing to use CORS to do GET from API on different port so I have to use the proxy inside
     // react server to get it working.
-    host = '';
+    host = '/api';
     let url = host + '/test-get?id=' + this.state.id;
     return fetch(url, {
       method: 'get',
@@ -27,7 +27,7 @@ class App extends Component {
 
   handlePost = (e) => {
     let host = process.env.REACT_APP_BACKEND_URI;
-    host = '';
+    host = '/api';
     let url = host + '/test-insert';
     let formData = new FormData();
     formData.append('fname',this.state.fname);
