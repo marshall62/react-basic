@@ -13,13 +13,14 @@ class App extends Component {
 
 
   handleGet = (e) => {
-    let host = process.env.REACT_APP_BACKEND_URI;
+    let host = process.env.REACT_APP_API_URI;
     console.log("The host taken from the environment file is", host);
-    console.log("mode",process.env.NODE_ENV)
+    console.log("mode",process.env.NODE_ENV,"REACT_APP_API_URI:",process.env.REACT_APP_API_URI)
     // am failing to use CORS to do GET from API on different port so I have to use the proxy inside
     // react server to get it working.
-    host = '/api';
+    host += '/api';
     let url = host + '/test-get?id=' + this.state.id;
+
     return fetch(url, {
       method: 'get',
       mode: 'cors',
@@ -29,8 +30,8 @@ class App extends Component {
   }
 
   handlePost = (e) => {
-    let host = process.env.REACT_APP_BACKEND_URI;
-    host = '/api';
+    let host = process.env.REACT_APP_API_URI;
+    host += '/api';
     let url = host + '/test-insert';
     let formData = new FormData();
     formData.append('fname',this.state.fname);
@@ -71,8 +72,9 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
+            Learn React Huh?
           </a>
+    <p>{process.env.NODE_ENV} REACT_APP_API_URI:{process.env.REACT_APP_API_URI} </p>
         </header>
         <label htmlFor="id">ID</label><input id="id" onChange={this.handleId} name="id" type="text"></input>
         <label htmlFor="fname">Fname</label><input id="fname" onChange={this.handleFname} name="fname" type="text"></input>
