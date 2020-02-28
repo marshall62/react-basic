@@ -13,8 +13,8 @@ class App extends Component {
 
 
   handleGet = (e) => {
-    let host = process.env.REACT_APP_API_URI;
-    console.log("The host taken from the environment file is", host);
+    let host = process.env.REACT_APP_API_URI; 
+    console.log("environment file host:", host, " use-cors:", process.env.REACT_APP_USE_CORS);
     console.log("mode",process.env.NODE_ENV,"REACT_APP_API_URI:",process.env.REACT_APP_API_URI)
     // am failing to use CORS to do GET from API on different port so I have to use the proxy inside
     // react server to get it working.
