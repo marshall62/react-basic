@@ -75,6 +75,7 @@ class App extends Component {
             Learn React Huh?
           </a>
     <p>{process.env.NODE_ENV} REACT_APP_API_URI:{process.env.REACT_APP_API_URI} </p>
+    <p>mode: {process.env.REACT_APP_MODE}</p>
         </header>
         <label htmlFor="id">ID</label><input id="id" onChange={this.handleId} name="id" type="text"></input>
         <label htmlFor="fname">Fname</label><input id="fname" onChange={this.handleFname} name="fname" type="text"></input>
